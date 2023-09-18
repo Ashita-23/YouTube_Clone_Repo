@@ -1,5 +1,6 @@
 import { useEffect ,useState } from "react"
 import {YouTube_API} from "../../Utils/UTAPIs"
+import VideoCard from "./VideoCard"
 
 const VideoCards = ()=>{  
     // console.log(fetch(YouTube_API) ,  "YAPIFEX")
@@ -42,22 +43,11 @@ const VideoCards = ()=>{
     </div>
 <div className="flex flex-wrap justify-evenly border pt-2 border-red-400 w-[100%] h-[70rem] scroll-smooth overflow-scroll mt-12">
 
-{ UT_Data?.map((data)=>{return(
-    <div className=" rounded-2xl p-1 w-[20rem] m-2" key={data?.id} >
-     <img src={data?.snippet?.thumbnails?.medium?.url} alt="thumbnail" className="rounded-2xl "/>
-     <div className="flex justify-evenly items-start">
-    <span className="text-2xl  px-3 py-2 m-1 rounded-full bg-gray-100 hover:bg-gray-200"><i className="fa-regular fa-circle-user"></i></span>
-     <div className="overflow-hidden">   
-     <p className="text-sm truncate font-medium ">{data?.snippet?.title}</p>
-        <p className="text-md">{data?.snippet?.channelTitle}</p>
-        <p className="text-xs ">{data?.statistics?.viewCount} views</p></div>
-
-     </div>
-    </div>)})}
+{ UT_Data?.map((data)=>{return(<VideoCard data={data} key={data?.id}> </VideoCard>)})}
 </div>
 </div>)
 
-{/* videoCards counter */}
+
 }
 
 export default VideoCards
