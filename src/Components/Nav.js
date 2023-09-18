@@ -2,7 +2,7 @@ import YT_LOGO from  "../assets/ytlogo.png"
 
 
 const Navigation = ()=>{
-    return(<div className="flex justify-around bg-white p-2 drop-shadow-md" >
+    return(<div className="flex justify-around bg-white p-2 drop-shadow-md fixed w-[100%]" >
             <div className=""><span className="text-2xl"><i className="fa-solid fa-bars"></i></span></div>
             <div  className="" ><img src={YT_LOGO} alt="YT_logo" className="w-32"/></div>
             <div  className=" w-[50rem] flex">
