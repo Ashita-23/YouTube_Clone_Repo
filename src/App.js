@@ -1,31 +1,39 @@
 
-import { useEffect } from "react";
+
 import "./App.css"
-import { YouTube_API } from "./Utils/UTAPIs";
+import {createBrowserRouter , RouterProvider} from "react-router-dom"
 import Navigation from "./Components/Nav";
+import MainCounter from "./Components/BodyComponents/MainCounter";
+import VideoCards from "./Components/BodyComponents/VideoCards";
+import WatchPage from "./Components/BodyComponents/WatchPage";
+
+const AppRouter = createBrowserRouter([
+  {
+    path:"/",
+    element:<MainCounter ></MainCounter>,
+    children:[
+      {
+        path:"/",
+        element:<VideoCards></VideoCards>
+      },
+      {
+        path:"watch",
+        element:<WatchPage></WatchPage>
+      }
+    ]
+  }
+])
+
 
 function App() {
-  console.log(fetch(YouTube_API) ,  "YAPIFEX")
-
-  useEffect(()=>{
-    getUtubeData()
-  },[])
-
- const  getUtubeData = async ()=> {
-   
-  const Utube_API = await fetch(YouTube_API);
-  const Json = await Utube_API.json()
-
-  console.log(Json)
-  }
 
 
 
   return (
-
-
- 
-  <Navigation></Navigation>
+  <>
+    <Navigation></Navigation>
+     <RouterProvider router={AppRouter}></RouterProvider>
+  </>
 
   );
 }
