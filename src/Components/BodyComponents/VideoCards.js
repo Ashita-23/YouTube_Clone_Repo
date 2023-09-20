@@ -1,6 +1,7 @@
 import { useEffect ,useState } from "react"
+import { Link } from "react-router-dom"
 import {YouTube_API} from "../../Utils/UTAPIs"
-import VideoCard from "./VideoCard"
+import VideoCard, { AddVideoCard } from "./VideoCard"
 
 const VideoCards = ()=>{  
     // console.log(fetch(YouTube_API) ,  "YAPIFEX")
@@ -42,8 +43,8 @@ const VideoCards = ()=>{
        
     </div>
 <div className="flex flex-wrap justify-evenly border pt-2 border-red-400 w-[100%] h-[70rem] scroll-smooth overflow-scroll mt-12">
-
-{ UT_Data?.map((data)=>{return(<VideoCard data={data} key={data?.id}> </VideoCard>)})}
+{UT_Data[0] && <AddVideoCard data={UT_Data[0]} ></AddVideoCard>}
+{ UT_Data?.map((data)=>{return(<Link to={"/watch?v="+ data?.id} key={data?.id}><VideoCard data={data} > </VideoCard></Link>)})}
 </div>
 </div>)
 
