@@ -17,7 +17,7 @@ const AppRouter = createBrowserRouter([
         element:<VideoCards></VideoCards>
       },
       {
-        path:"watch",
+        path:"/watch",
         element:<WatchPage></WatchPage>
       }
     ]
