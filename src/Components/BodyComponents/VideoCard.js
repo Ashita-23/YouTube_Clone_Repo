@@ -16,7 +16,7 @@ const VideoCard = ({data})=>{
 export const  AddVideoCard = ({data})=>{
    return(
      
-      <div className="border border-red-500 bg-white rounded-2xl hover:bg-black-200 m-1">
+      <div className="border border-red-500 bg-white rounded-2xl hover:bg-black-200 mx-2 my-1">
          <VideoCard data={data} ></VideoCard>
          </div>
       )
