@@ -1,12 +1,15 @@
 
 import { useEffect, useState } from "react"
+import {useDispatch} from "react-redux"
 import YT_LOGO from  "../assets/ytlogo.png"
 import {YT_search_API} from "../Utils/UTAPIs"
+import { ToggleMenu } from "../RStore/ToggelSlice"
 
 
 
 
 const Navigation = ()=>{
+  const dispatch = useDispatch()
 
 const [search,setSearch] = useState("")
 console.log(search)
@@ -21,6 +24,10 @@ useEffect(()=>{
    };
 },[search])
 
+ const ToggleSideBar = () =>{
+  dispatch(ToggleMenu(false))
+ }
+
 
 
 const getSearch = async () =>{
@@ -29,10 +36,10 @@ const getSearch = async () =>{
     // console.log(Search_API_Json , "sAJ")
     setSuggetions(Search_API_Json[1])
 }
-    return(<div className="flex justify-around bg-white p-2 fixed w-[100%] z-10" >
-            <div className=""><span className="text-2xl"><i className="fa-solid fa-bars"></i></span></div>
-            <div  className="" ><img src={YT_LOGO} alt="YT_logo" className="w-32"/></div>
-            {/* {________---------- SEARCH INPUT BOX        -----------_______________} */}
+    return(<div className="flex justify-between bg-white px-4 py-2 pr-5 fixed w-[100%] z-10" >
+            <div className=" flex  w-[12rem] justify-evenly items-center"><span className="text-2xl"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
+          <img src={YT_LOGO} alt="YT_logo" className="w-32"/></div>
+            {/* {________---------- SEARCH INPUT BOX  -----------_______________} */}
             <div  className=" w-[50rem] flex">
             
             <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search"
@@ -44,7 +51,7 @@ const getSearch = async () =>{
             <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300" ><i className="fa-solid fa-magnifying-glass"></i></span>
             <span  className="text-xl px-4 py-2 border border-black-200 rounded-full mx-2 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
             </div>
-           {ShowSuggetions && <div className="absolute mt-12 ml-6 bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg" >
+           {ShowSuggetions && <div className="absolute mt-12 ml-[35rem] bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg" >
                 <ul> 
                   {Suggetions.map((Suge_data)=> <li className="text-base font-bold px-3 py-1 bg-gray-200 hover:bg-gray-300"><i className="fa-solid fa-magnifying-glass text-sm px-1"></i>{Suge_data}</li>)}
                 </ul>
