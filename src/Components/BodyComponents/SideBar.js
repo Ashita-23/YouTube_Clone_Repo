@@ -1,6 +1,11 @@
-
+import {useSelector} from "react-redux"
 
 const SideBar = ()=>{
+
+    const IsMenuOpen = useSelector((store)=>store.Toggle.IsMenuOpen)
+    console.log(IsMenuOpen,"IsMenuOpen")
+
+    if (!IsMenuOpen) return null;
     return(<>
            {/* side bar */}
            <div className=" border border-gray-400 w-[10%] h-[90%] mt-16 ">
