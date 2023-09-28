@@ -10,7 +10,7 @@ reducers:{
      state.IsMenuOpen = !state.IsMenuOpen
    } ,
    CloseMenu:(state)=>{
-    state.IsMenuOpen = false
+    state.IsMenuOpen = !state.IsMenuOpen
    }
 }
 })
