@@ -1,9 +1,10 @@
 
 import { useEffect, useState } from "react"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import YT_LOGO from  "../assets/ytlogo.png"
 import {YT_search_API} from "../Utils/UTAPIs"
 import { ToggleMenu } from "../RStore/ToggelSlice"
+import { AddToCache } from "../RStore/SearchCacheSlice"
 
 
 
@@ -11,13 +12,21 @@ import { ToggleMenu } from "../RStore/ToggelSlice"
 const Navigation = ()=>{
   const dispatch = useDispatch()
 
+  const SearchCache = useSelector((store)=>store.SearchCacheData)
+
 const [search,setSearch] = useState("")
 console.log(search)
 const [Suggetions , setSuggetions] = useState([""])
 const [ShowSuggetions , setShowSuggetions] = useState(false)
 
 useEffect(()=>{
-   const search_timer = setTimeout(()=>getSearch(),100) 
+   const search_timer = setTimeout(()=>
+ {  if(SearchCache[search]){
+    setShowSuggetions(SearchCache[search])
+   }else{
+    getSearch()
+   }}
+  ,200) 
 
    return()=>{
     clearTimeout(search_timer)
@@ -35,6 +44,10 @@ const getSearch = async () =>{
     const Search_API_Json = await Search_API.json()
     // console.log(Search_API_Json , "sAJ")
     setSuggetions(Search_API_Json[1])
+
+    dispatch(AddToCache({
+      [search]:Search_API_Json[1]
+    }))
 }
     return(<div className="flex justify-between bg-white px-4 py-2 pr-5 fixed w-[100%] z-10" >
             <div className=" flex  w-[12rem] justify-evenly items-center"><span className="text-2xl"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
