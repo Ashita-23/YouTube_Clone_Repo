@@ -1,15 +1,25 @@
 import { useEffect, useState } from "react"
 import {useSearchParams} from "react-router-dom"
+import {CloseMenu} from "../../RStore/ToggelSlice"
+import { useDispatch } from "react-redux"
 // import { YouTube_API_UserKey } from "../../Utils/UTAPIs"
 
 const WatchPage = ()=>{
     const [search,] = useSearchParams()
     const [VideoData,setVideoData] = useState([])
     console.log(VideoData,"V Data")
+    const dispatch = useDispatch()
+    
 
 useEffect(()=>{
     getById()
+    CloseSideBar()
 },[])
+
+const CloseSideBar = ()=>{
+    dispatch(CloseMenu())
+}
+
 
 const getById = async () => {
     const url = await fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+search.get("v")+"&key=AIzaSyB0BYF-z7QkTKBfNS25fwTBLR9r18FBsLs") ;
