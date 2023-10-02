@@ -15,7 +15,7 @@ const Navigation = ()=>{
   const SearchCache = useSelector((store)=>store.SearchCacheData)
 
 const [search,setSearch] = useState("")
-console.log(search)
+// console.log(search)
 const [Suggetions , setSuggetions] = useState([""])
 const [ShowSuggetions , setShowSuggetions] = useState(false)
 
