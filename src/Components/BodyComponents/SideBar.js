@@ -3,7 +3,7 @@ import {useSelector} from "react-redux"
 const SideBar = ()=>{
 
     const IsMenuOpen = useSelector((store)=>store.Toggle.IsMenuOpen)
-    console.log(IsMenuOpen,"IsMenuOpen")
+    // console.log(IsMenuOpen,"IsMenuOpen")
 
     if (!IsMenuOpen) return null;
     return(<>
