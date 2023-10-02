@@ -7,3 +7,132 @@ export const YouTube_API =  "https://youtube.googleapis.com/youtube/v3/videos?pa
 // export const YouTube_ID_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key="+YouTube_API_UserKey ;
 
 export const YT_search_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" ;
+
+export const commentsData = [
+    {
+        name:"aman",
+        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        replies:[
+            {
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[]
+                }
+            ,
+
+            {
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[
+                    {
+                        name:"aman",
+                        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                        replies:[
+                            {
+                                name:"aman",
+                                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                            }
+                        ]
+                    }
+                ]
+            }
+           
+        ]
+    },
+    {
+        name:"aman",
+        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        replies:[
+            {
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[
+                    {
+                        name:"aman",
+                        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                        replies:[
+                            {
+                                name:"aman",
+                                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                                replies:[
+                                    {
+                                        name:"aman",
+                                        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },{
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[]
+                }
+            
+        ],
+        
+    },
+    {
+        name:"aman",
+        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        replies:[
+            {
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[
+                    {
+                        name:"aman",
+                        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                        replies:[
+                            {
+                                name:"aman",
+                                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        
+    },
+    {
+        name:"aman",
+        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        replies:[
+            {
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[
+                    {
+                        name:"aman",
+                        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                        replies:[
+                            {
+                                name:"aman",
+                                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                                replies:[
+                                    {
+                                        name:"aman",
+                                        text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },{
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[]
+                }
+            ,{
+                name:"aman",
+                text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+                replies:[]
+                }
+            
+        ],
+        
+    }
+]
