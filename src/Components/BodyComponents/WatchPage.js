@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import {useSearchParams} from "react-router-dom"
 import {CloseMenu} from "../../RStore/ToggelSlice"
 import { useDispatch } from "react-redux"
+
+import CommentCounter from "../BodyComponents/Comments"
 // import { YouTube_API_UserKey } from "../../Utils/UTAPIs"
 
 const WatchPage = ()=>{
     const [search,] = useSearchParams()
     const [VideoData,setVideoData] = useState([])
-    console.log(VideoData,"V Data")
+    // console.log(VideoData,"V Data")
     const dispatch = useDispatch()
     
 
@@ -27,6 +29,9 @@ const getById = async () => {
     // console.log(json,"json ID V")
     setVideoData(json?.items[0])
 }
+
+// ------------------------
+
     // console.log(id,"id")
     // console.log(search )
     return(<>
@@ -61,6 +66,7 @@ const getById = async () => {
         <p className="text-blue-700">{VideoData?.snippet?.tags.join("#")}</p></div>
        </div>
        </div>
+      <CommentCounter></CommentCounter>
          </div>
     </>)
 }
