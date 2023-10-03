@@ -5,6 +5,8 @@ import YT_LOGO from  "../assets/ytlogo.png"
 import {YT_search_API} from "../Utils/UTAPIs"
 import { ToggleMenu } from "../RStore/ToggelSlice"
 import { AddToCache } from "../RStore/SearchCacheSlice"
+import {SearchItem} from "../helper/SearchItem"
+import {AddSearchText} from "../RStore/SearchItemSlice"
 
 
 
@@ -13,9 +15,14 @@ const Navigation = ()=>{
   const dispatch = useDispatch()
 
   const SearchCache = useSelector((store)=>store.SearchCacheData)
+  const UT_Data_From_Store = useSelector((store)=>store.You_Tube_Data.items)
+  const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
+  // console.log(UT_Data_From_Store[0],"UT_Data_From_Store")
+  // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
+  // console.log(SearchText_FromBtns,"SearchText_FromBtns")
 
 const [search,setSearch] = useState("")
-// console.log(search)
+console.log(search,"search")
 const [Suggetions , setSuggetions] = useState([""])
 const [ShowSuggetions , setShowSuggetions] = useState(false)
 
@@ -47,8 +54,15 @@ const getSearch = async () =>{
 
     dispatch(AddToCache({
       [search]:Search_API_Json[1]
-    }))
+    }))}
+
+
+const InputTextSearch = (inputSearch) => {
+  dispatch(AddSearchText(inputSearch))
 }
+
+
+
     return(<div className="flex justify-between bg-white px-4 py-2 pr-5 fixed w-[100%] z-10" >
             <div className=" flex  w-[12rem] justify-evenly items-center"><span className="text-2xl"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
           <img src={YT_LOGO} alt="YT_logo" className="w-32"/></div>
@@ -61,7 +75,14 @@ const getSearch = async () =>{
                 onBlur={()=>setShowSuggetions(false)}
              />
 
-            <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300" ><i className="fa-solid fa-magnifying-glass"></i></span>
+            <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300"  >
+            <i onClick={()=>{
+              InputTextSearch(search);
+            const FilterItem = SearchItem(UT_Data_From_Store[0],SearchText_FromBtns)
+            // console.log(FilterItem)
+            return FilterItem
+             }
+            } className="fa-solid fa-magnifying-glass"></i></span>
             <span  className="text-xl px-4 py-2 border border-black-200 rounded-full mx-2 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
             </div>
            {ShowSuggetions && <div className="absolute mt-12 ml-[35rem] bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg" >
