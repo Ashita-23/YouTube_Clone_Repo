@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import {useSearchParams} from "react-router-dom"
 import {CloseMenu} from "../../RStore/ToggelSlice"
+import  LiveChatBox from "./LiveChatBox"
 import { useDispatch } from "react-redux"
 
 import CommentCounter from "../BodyComponents/Comments"
@@ -35,12 +36,13 @@ const getById = async () => {
     // console.log(id,"id")
     // console.log(search )
     return(<>
-       <div className="mt-14 pt-2">
-        <iframe width="1100" height="600" 
+       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex justify-around">
+       <div className= " w-[70%] border  mt-2 border-green-700">
+        <iframe width="1200" height="650" 
         src={"https://www.youtube.com/embed/" + search.get("v") }
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen></iframe>
-        <div  className="border border-green-600 h-[auto] w-[61%]">
+  <div  className="border border-yellow-600 h-[auto] w-[100%]">
        <div className="border border-blue-600 h-[auto] w-[100%]"> 
   <p>{VideoData?.snippet?.title}</p>
   <div className="flex items-center ">
@@ -67,6 +69,8 @@ const getById = async () => {
        </div>
        </div>
       <CommentCounter></CommentCounter>
+      </div>
+     <LiveChatBox/>
          </div>
     </>)
 }
