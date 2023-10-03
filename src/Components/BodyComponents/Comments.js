@@ -16,8 +16,8 @@ const CommentCard= ({data})=>{
 }
 
 const CommentList = ({comments})=>{
-    console.log(comments,"DATA")
-    console.log(comments[0].replies,"replies")
+    // console.log(comments,"DATA")
+    // console.log(comments[0].replies,"replies")
     return comments.map((comment,index)=>( <div><CommentCard data={comment} key={index}></CommentCard>
     <div className=" border-l-4 ml-2 border-red-500">
      {/* <CommentList comments={comment.replies}/> */}
