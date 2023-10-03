@@ -34,7 +34,7 @@ const CommentList = ({comments})=>{
 
 
 const CommentCounter = ()=>{
-    return(<div className="h-[auto] w-[62%] flex flex-col bg-gray-100 p-1">
+    return(<div className="h-[auto] w-[100%] flex flex-col bg-gray-100 p-1 border border-violet-950">
         <h2>Comments:</h2>
      
             <CommentList comments={commentsData}></CommentList>
