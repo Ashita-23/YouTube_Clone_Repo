@@ -9,7 +9,7 @@ const SideBar = ()=>{
     return(<>
            {/* side bar */}
            <div className=" border border-gray-400 w-[10%] h-[90%] mt-16 ">
-            <ul>
+            <ul className="mt-2 text-base font-bold">
                 <li>Home</li>
                 <li>Shorts</li>
                 <li>Subscriptions</li>
