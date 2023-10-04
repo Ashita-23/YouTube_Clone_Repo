@@ -65,7 +65,7 @@ const getById = async () => {
         </div>
             
         <div><p className="">{VideoData?.snippet?.localized?.description}</p>
-        <p className="text-blue-700">{VideoData?.snippet?.tags.join("#")}</p></div>
+        <p className="text-blue-700">{VideoData?.snippet?.tags}</p></div>
        </div>
        </div>
       <CommentCounter></CommentCounter>
