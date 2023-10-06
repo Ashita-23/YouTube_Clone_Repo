@@ -5,8 +5,9 @@ import YT_LOGO from  "../assets/ytlogo.png"
 import {YT_search_API} from "../Utils/UTAPIs"
 import { ToggleMenu } from "../RStore/ToggelSlice"
 import { AddToCache } from "../RStore/SearchCacheSlice"
-import {SearchItem} from "../helper/SearchItem"
+// import {SearchItem} from "../helper/SearchItem"
 import {AddSearchText} from "../RStore/SearchItemSlice"
+// import {Add_UT_Data} from "../RStore/YouTubeDataSlice"
 
 
 
@@ -15,14 +16,14 @@ const Navigation = ()=>{
   const dispatch = useDispatch()
 
   const SearchCache = useSelector((store)=>store.SearchCacheData)
-  const UT_Data_From_Store = useSelector((store)=>store.You_Tube_Data.items)
-  const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
+  // const UT_Data_From_Store = useSelector((store)=>store.You_Tube_Data.items)
+  // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
   // console.log(UT_Data_From_Store[0],"UT_Data_From_Store")
   // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
   // console.log(SearchText_FromBtns,"SearchText_FromBtns")
 
 const [search,setSearch] = useState("")
-console.log(search,"search")
+// console.log(search,"search")
 const [Suggetions , setSuggetions] = useState([""])
 const [ShowSuggetions , setShowSuggetions] = useState(false)
 
@@ -57,8 +58,9 @@ const getSearch = async () =>{
     }))}
 
 
-const InputTextSearch = (inputSearch) => {
-  dispatch(AddSearchText(inputSearch))
+const SearchFromSuggetion = (inputSearch) => {
+  console.log(inputSearch,"inputSearch")
+  setSearch(inputSearch)
 }
 
 
@@ -76,18 +78,22 @@ const InputTextSearch = (inputSearch) => {
              />
 
             <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300"  >
-            <i onClick={()=>{
-              InputTextSearch(search);
-            const FilterItem = SearchItem(UT_Data_From_Store[0],SearchText_FromBtns)
+            <i onSubmit={(e)=>{
+              e.preventDefault()
+             
+            //   InputTextSearch(search);
+            // const FilterItem = SearchItem(UT_Data_From_Store[0],SearchText_FromBtns)
             // console.log(FilterItem)
-            return FilterItem
+            // return FilterItem
+            // dispatch( Add_UT_Data(FilterItem))
              }
             } className="fa-solid fa-magnifying-glass"></i></span>
             <span  className="text-xl px-4 py-2 border border-black-200 rounded-full mx-2 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
             </div>
            {ShowSuggetions && <div className="absolute mt-12 ml-[35rem] bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg" >
                 <ul> 
-                  {Suggetions.map((Suge_data)=> <li className="text-base font-bold px-3 py-1 bg-gray-200 hover:bg-gray-300"><i className="fa-solid fa-magnifying-glass text-sm px-1"></i>{Suge_data}</li>)}
+                  {Suggetions.map((Suge_data)=> <li className="text-base font-bold px-3 py-1 bg-gray-200 hover:bg-gray-300" 
+                  onClick={()=>SearchFromSuggetion(Suge_data)}><i className="fa-solid fa-magnifying-glass text-sm px-1"></i>{Suge_data}</li>)}
                 </ul>
             </div>}
             
