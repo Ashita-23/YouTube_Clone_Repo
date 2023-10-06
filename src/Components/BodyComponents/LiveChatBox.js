@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { FirstName ,LastNames } from "../../Utils/UTAPIs"
 import { useDispatch, useSelector } from "react-redux"
 import {AddDataToCS } from "../../RStore/LiveChatData"
@@ -8,18 +8,15 @@ import {AddDataToCS } from "../../RStore/LiveChatData"
 
 const LiveChatBox = ()=>{
 
-const dispatch = useDispatch((store)=> store.LiveChatData.items)
-    // const LiveChatData = [
-    //     {
-    //         name:"abcd",
-    //         text:"this is an livechat box"
-    //     },]
+    
+   
+const dispatch = useDispatch()
+
 const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
+
 // console.log(ChatDataToDisplay,"(store)=> store.LiveChatData.itema")
         useEffect(()=>{
    const setLiveChat = setInterval(()=>{
-    // console.log(GetRandomName(),"name")
-    // console.log( GetRandomText (12),"text")
     dispatch(AddDataToCS({
         name:GetRandomName(),
         text:GetRandomText(12)
@@ -29,9 +26,8 @@ const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
 
 //    console.log(setLiveChat , "setLiveChat")
 
-   return()=>{
-    clearTimeout(setLiveChat)
-   }
+   return()=> clearTimeout(setLiveChat)
+
         },[])
 
         const GetRandomName = ()=>{
@@ -41,7 +37,6 @@ const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
             const RandomName  = FName+""+LName ;
             return RandomName
             }
-
 
             const GetRandomText = (textLength)=>{
                 let RandomText = " " ;
@@ -62,12 +57,7 @@ const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
            {ChatDataToDisplay.map((ChatData)=>( <LiveChatTextBox data = {ChatData} />)) }
           
         </div>
-        <div className="flex flex-col w-[100%]   h-[20%] border  border-red-400  " >
-            <input type="text" placeholder="enter text" className="bg-gray-100 p-2"/>
-            <button className="bg-gray-400 p-2 ">send  <i className="fa-regular fa-paper-plane"></i></button>
-            <button className="border border-gray-400 p-2 ">hidechat</button>
-           
-        </div>
+       <SendText/>
         </div>
     </div>)
 }
@@ -77,6 +67,26 @@ const LiveChatTextBox = ({data})=>{
     <span className="font-semibold">{data.name} : </span>
     <span>{data.text}</span>
 </div>)
+}
+
+
+const SendText = () =>{
+     const [addMessage,setAddMessage] = useState("")
+     const dispatch = useDispatch()
+    // console.log("addMessage","addmessage")
+    return(
+ <form onSubmit={(E)=>{ E.preventDefault() 
+  dispatch(AddDataToCS({
+        name:"App User",
+        text:addMessage }))
+        setAddMessage("")
+        }} className="flex flex-col w-[100%]   h-[20%] border  border-red-400  " >
+            <input type="text" placeholder="enter text" className="bg-gray-100 p-2"  value={addMessage} onChange={(e)=>setAddMessage(e.target.value)}/>
+            <button className="bg-gray-400 p-2 ">send  <i className="fa-regular fa-paper-plane"></i></button>
+            <button className="border border-gray-400 p-2 ">hidechat</button>
+           
+        </form>
+    )
 }
 
 export default LiveChatBox
