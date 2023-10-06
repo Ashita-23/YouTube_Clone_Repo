@@ -9,7 +9,7 @@ const LiveChatSlice = createSlice({
     reducers:{
         AddDataToCS : (state,action)=>{
            if(state.items.length > 16) state.items.pop()
-  state.items.unshift(action.payload)
+          state.items.unshift(action.payload)
         }
     }
 })
