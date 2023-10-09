@@ -2,18 +2,19 @@ import { useEffect ,useState } from "react"
 import { Link } from "react-router-dom"
 import {YouTube_API} from "../../Utils/UTAPIs"
 import VideoCard, { AddVideoCard } from "./VideoCard"
-import { useDispatch , useSelector } from "react-redux"
+import { useDispatch , useSelector} from "react-redux"
 import {AddSearchText} from "../../RStore/SearchItemSlice"
-import {SearchItem} from "../../helper/SearchItem"
+// import {SearchItem} from "../../helper/SearchItem"
 import {Add_UT_Data} from "../../RStore/YouTubeDataSlice"
+import useDataToFilter from "../../helper/useDataToFilter"
 
 
 
 const VideoCards = ()=>{  
     // console.log(fetch(YouTube_API) ,  "YAPIFEX")
     const dispatch = useDispatch()
-    const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
-    console.log(SearchText_FromBtns,"SearchText_FromBtns")
+  // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
+  // console.log(SearchText_FromBtns,"SearchText_FromBtns")
 
 // original list
     const [UT_Data , setUt_Data] = useState([])
@@ -21,12 +22,14 @@ const VideoCards = ()=>{
     // copy for filtering data
     const [filter_UT_Data,setFilter_UT_Data] =   useState([])
     // console.log(UT_Data ,"UTD")
-    // console.log(filter_UT_Data ,"filter_UT_Data")
-
-    useEffect(()=>{
-      getUtubeData()
-    },[])
+    // console.log(filter_UT_Data ,"filter_UT_Data initial ")
+    const [FilterItemFromState] = useDataToFilter()
+    console.log(FilterItemFromState,"FilterItemFromState of custom hook")
+    console.log(filter_UT_Data ,"filter_UT_Data from video cards")
   
+    const [ErrorMessage,setErrorMessage]= useState(false)
+    
+    
    const  getUtubeData = async ()=> {
      
     const Utube_API = await fetch(YouTube_API);
@@ -34,8 +37,32 @@ const VideoCards = ()=>{
     setUt_Data(Json.items)
     setFilter_UT_Data(Json.items)
     dispatch( Add_UT_Data(Json.items))
+    // add U T data to slice for (filter data) custome hook 
+   
     // console.log(Json)
     }
+ 
+    useEffect(()=>{
+      getUtubeData()
+      // dispatch( Add_UT_Data(UT_Data ))
+    },[])
+
+    //
+
+    useEffect(()=>{
+      if(FilterItemFromState.length <= 0){
+          setFilter_UT_Data(UT_Data)
+          // console.log("nothing has matched......")
+          setErrorMessage(true)
+        }else if (FilterItemFromState.length > 0){
+          setFilter_UT_Data(FilterItemFromState)
+          setErrorMessage(false)
+
+        }
+    },[FilterItemFromState])
+  //
+  
+    
 
  const Button_List = ["All","Food","Live","New" , "Dogs" , "criket" , "Footbal" , "Dance" ,"book" , "News","Food","Live","New" , "Dogs" , "criket" , "Footbal" , "Dance" ,"book" , "News","Food","Live","New" , "Dogs" , "criket" , "Footbal" , "Dance" ,"book" , "News"]
 const DoSearch = (text)=>{
@@ -47,17 +74,18 @@ const DoSearch = (text)=>{
     scrollbar-w-thin scrollbar-rounded-full items-center scrollbar-thumb-gray-600 scrollbar-track-gray-200  snap-x">
             {Button_List.map((Btn_text)=><button className="bg-gray-300 mx-2 text-md rounded-md px-3 text-black-300 py-1" 
             onClick={()=>{ DoSearch(Btn_text.toLowerCase())
-            const filterCards = SearchItem(UT_Data,SearchText_FromBtns) ;
-            console.log(filterCards ,"btn search filter items")
-            if(filterCards.length === 0 ){
-              setFilter_UT_Data(UT_Data) 
-              } else{
-                setFilter_UT_Data(filterCards)
-              }
+            // const filterCards = SearchItem(UT_Data,SearchText_FromBtns) ;
+            // console.log(filterCards ,"btn search filter items")
+            // if(filterCards.length === 0 ){
+            //   setFilter_UT_Data(UT_Data) 
+            //   } else{
+            //     setFilter_UT_Data(filterCards)
+            //   }
           
             } }>{Btn_text}</button>)
              }
     </div>
+    <div className={!ErrorMessage ?"border border-gray-400 h-[6rem] mt-[5rem] hidden items-center justify-center ":"border border-gray-400 h-[6rem] mt-[5rem] flex items-center justify-center"}><p className="text-2xl">nothing has match,try something else...</p></div>
 <div className="flex flex-wrap justify-start border pt-8 border-red-400 w-[100%] h-[70rem] scroll-smooth overflow-y-scroll scrollbar-hide snap-y mt-12">
 {filter_UT_Data[0] && <AddVideoCard data={UT_Data[0]} ></AddVideoCard>}
 {filter_UT_Data?.map((data)=>{ 
