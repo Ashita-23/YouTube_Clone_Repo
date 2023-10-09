@@ -138,5 +138,4 @@ export const commentsData = [
             
         ],
         
-    }
-]
+    }]
