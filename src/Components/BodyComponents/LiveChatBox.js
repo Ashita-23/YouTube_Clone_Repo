@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react"
+import { useEffect , useState} from "react"
 import { FirstName ,LastNames } from "../../Utils/UTAPIs"
 import { useDispatch, useSelector } from "react-redux"
 import {AddDataToCS } from "../../RStore/LiveChatData"
+import {ToggleChatBox} from "../../RStore/ChatBoxDisplay"
 
 
 
 
 const LiveChatBox = ()=>{
-
-    
-   
 const dispatch = useDispatch()
-
 const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
+const  isChatBoxOpen = useSelector((store)=>store.ToggleChatBox.IsChatBoxOpen)
+// console.log(isChatBoxOpen,"isChatBoxOpen")
+
+// ===== dispatch an action for toggling Chat box =====================
 
 // console.log(ChatDataToDisplay,"(store)=> store.LiveChatData.itema")
         useEffect(()=>{
@@ -21,13 +22,9 @@ const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
         name:GetRandomName(),
         text:GetRandomText(12)
     }) )
-   
    },2000)
-
 //    console.log(setLiveChat , "setLiveChat")
-
    return()=> clearTimeout(setLiveChat)
-
         },[])
 
         const GetRandomName = ()=>{
@@ -49,26 +46,29 @@ const ChatDataToDisplay = useSelector((store)=> store.LiveChatData.items)
                 return RandomText
             }
 
-    return(<div className="w-[24%] mt-2 mx-4 border h-[57%] border-red-400 flex item-center justify-center rounded-xl">
-    <div className="w-[90%] my-4  h-[94%]  border  border-gray-400 rounded-xl overflow-hidden" >
-        <h1 className="flex  w-[100%] px-3 py-2 h-[6%] bg-gray-200 justify-between content-center " ><span>Top Chat </span> <span>:</span></h1>
-        <div className="flex flex-col-reverse overflow-y-scroll w-[100%]  h-[73%] border  border-blue-400  ">
-
+            return(  isChatBoxOpen ? 
+    <div className="w-[24%] mt-2 mx-4 p-2 border h-[57%] shadow-sm flex item-center justify-center rounded-xl">
+    <div className="w-[90%] my-4  h-[94%]  border  border-slate-400 rounded-xl overflow-hidden" >
+        <h1 className="flex  w-[100%] px-3 py-2 h-[6%] bg-slate-300 justify-between content-center border border-b-slate-400 " >
+        <span className="text-md font-medium">Top Chat </span> <span className="text-md font-medium ">:</span></h1>
+        <div className="flex flex-col-reverse  overflow-y-scroll scroll-smooth scrollbar-thin snap-y w-[100%]  h-[73%]  ">
            {ChatDataToDisplay.map((ChatData)=>( <LiveChatTextBox data = {ChatData} />)) }
-          
         </div>
        <SendText/>
         </div>
-    </div>)
-}
-const LiveChatTextBox = ({data})=>{
-    // console.log(data,"LCd")
-    return(<div className="border border-gray-400 p-1">
-    <span className="font-semibold">{data.name} : </span>
-    <span>{data.text}</span>
-</div>)
+    </div>:
+         <div  className="w-[24%] mt-2 mx-4 p-2 border h-[4%] shadow-sm  rounded-xl">
+        <button onClick={()=>dispatch(ToggleChatBox(true)) } className="w-[100%] font-medium py-1  px-2 rounded-xl bg-slate-200 hover:bg-slate-300  ">Show chat</button></div> 
+    )
 }
 
+const LiveChatTextBox = ({data})=>{
+    // console.log(data,"LCd")
+    return(<div className=" border border-b-slate-300 bg-slate-100 p-1">
+    <span className="font-semibold">{data.name} : </span>
+    <span className="px-1">{data.text}</span>
+</div>)
+}
 
 const SendText = () =>{
      const [addMessage,setAddMessage] = useState("")
@@ -80,10 +80,10 @@ const SendText = () =>{
         name:"App User",
         text:addMessage }))
         setAddMessage("")
-        }} className="flex flex-col w-[100%]   h-[20%] border  border-red-400  " >
-            <input type="text" placeholder="enter text" className="bg-gray-100 p-2"  value={addMessage} onChange={(e)=>setAddMessage(e.target.value)}/>
-            <button className="bg-gray-400 p-2 ">send  <i className="fa-regular fa-paper-plane"></i></button>
-            <button className="border border-gray-400 p-2 ">hidechat</button>
+        }} className="flex flex-col w-[100%]  h-[20%]   " >
+            <input type="text" placeholder="enter text" className="bg-slate-100 p-2 text-base outline-1 outline-blue-500 "  value={addMessage} onChange={(e)=>setAddMessage(e.target.value)}/>
+            <button className="font-medium bg-slate-400 p-2 py-3">Send  <i className="fa-regular fa-paper-plane"></i></button>
+            <button onClick={()=>dispatch(ToggleChatBox(false))} className="font-medium py-3 bg-slate-300 px-2 ">Hide chat</button>
            
         </form>
     )
