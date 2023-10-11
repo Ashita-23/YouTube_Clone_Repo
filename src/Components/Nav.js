@@ -20,8 +20,7 @@ const Navigation = ()=>{
   // const UT_Data_From_Store = useSelector((store)=>store.You_Tube_Data.items)
   // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
   // console.log(UT_Data_From_Store[1],"UT_Data_From_Store")
-  // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
-  // console.log(SearchText_FromBtns,"SearchText_FromBtns")
+
 
 const [search,setSearch] = useState("")
 // console.log(search,"search state")
@@ -63,19 +62,12 @@ const getSearch = async () =>{
     }))}
 
 
-// const SearchFromSuggetion = (inputSearch) => {
-//   console.log(inputSearch,"inputSearch")
-//   setSearch(inputSearch)
-// }
 
-// const [FilterItemFromState] = useDataToFilter()
-
-// console.log(FilterItemFromState,"FilterItemFromState of custom hook")
 
 
     return(<div className="flex justify-between bg-white px-4 py-2 pr-5 fixed w-[100%] z-10" >
             <div className=" flex  w-[12rem] justify-evenly items-center"><span className="text-2xl"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
-          <img src={YT_LOGO} alt="YT_logo" className="w-32"/></div>
+          <img src={YT_LOGO} alt="YT_logo" className="w-32 ml-2"/></div>
             {/* {________---------- SEARCH INPUT BOX  -----------_______________} */}
             <form onSubmit={(e)=>{
               e.preventDefault()}}  className=" w-[50rem] flex">
@@ -88,16 +80,10 @@ const getSearch = async () =>{
 
             <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300"  >
             <i onClick={()=>{
-      //  InputTextSearch(search);
-            // const FilterItem = SearchItem(UT_Data_From_Store[0],SearchText_FromBtns)
-            // console.log(FilterItem,"filter items from nav input text")
-            // return FilterItem
+ 
             dispatch(AddSearchText(search))
             }}
              
-       
-             
-            // dispatch( Add_UT_Data(FilterItem))
              className="fa-solid fa-magnifying-glass"></i></span>
             <span  className="text-xl px-4 py-2 border border-black-200 rounded-full mx-2 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
             </form>
