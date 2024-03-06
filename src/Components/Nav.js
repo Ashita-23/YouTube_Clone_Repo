@@ -5,7 +5,8 @@ import YT_LOGO from  "../assets/ytlogo.png"
 import {YT_search_API} from "../Utils/UTAPIs"
 import { ToggleMenu } from "../RStore/ToggelSlice"
 import { AddToCache } from "../RStore/SearchCacheSlice"
-// import {SearchItem} from "../helper/SearchItem"
+import { AddItems } from "../RStore/FilterItemsSlice"
+import { OpenSearchError,CloseSearchError } from "../RStore/NothingFoundToggel"
 import {AddSearchText} from "../RStore/SearchItemSlice"
 // import {Add_UT_Data} from "../RStore/YouTubeDataSlice"
 // import useDataToFilter from "../helper/useDataToFilter"
@@ -17,8 +18,9 @@ const Navigation = ()=>{
   const dispatch = useDispatch()
 
   const SearchCache = useSelector((store)=>store.SearchCacheData)
-  // const UT_Data_From_Store = useSelector((store)=>store.You_Tube_Data.items)
-  // const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
+
+  const UT_Data_From_Store = useSelector((store)=>store.You_Tube_Data.items)
+  const SearchText_FromBtns = useSelector((store)=>store.SearchText_FromBtns.SearchText)
   // console.log(UT_Data_From_Store[1],"UT_Data_From_Store")
 
 
@@ -62,7 +64,10 @@ const getSearch = async () =>{
     }))}
 
 
-
+    function FilterSearchItems(UT_Data_From_Store,SearchText_FromBtns){
+      const FilterItem = UT_Data_From_Store[0].filter((data)=> data?.snippet?.description?.toLowerCase().includes(SearchText_FromBtns))
+      return FilterItem
+  }
 
 
     return(<div className="flex justify-between bg-white px-4 py-2 pr-5 fixed w-[100%] z-10" >
@@ -80,8 +85,14 @@ const getSearch = async () =>{
 
             <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300"  >
             <i onClick={()=>{
- 
-            dispatch(AddSearchText(search))
+               dispatch(AddSearchText(search))
+
+               const FilterCard = FilterSearchItems(UT_Data_From_Store,SearchText_FromBtns)
+              (FilterCard.length===0)?dispatch(OpenSearchError(true)):dispatch(CloseSearchError(false))
+               console.log(FilterCard,"FIFN")
+               if (FilterCard.length !== 0 ){
+                dispatch( AddItems(FilterCard))
+               }
             }}
              
              className="fa-solid fa-magnifying-glass"></i></span>

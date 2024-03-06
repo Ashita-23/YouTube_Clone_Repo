@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const YouTubeData = createSlice({
     name : "UT_Data",
     initialState:{
-       items : [],
+    items:[]
     },
     reducers:{
         Add_UT_Data :(state,action)=>{

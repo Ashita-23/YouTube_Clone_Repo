@@ -5,6 +5,8 @@ import SearchItems from "./SearchItemSlice"
 import YouTubeData from "./YouTubeDataSlice"
 import LiveChatSlice from "./LiveChatData"
 import ChatBoxDisplay from "./ChatBoxDisplay"
+import FilterItems from "./FilterItemsSlice"
+import SearchMessage from "./NothingFoundToggel"
 const AppStore = configureStore({
     reducer:{
      Toggle : NavToggle,
@@ -13,6 +15,8 @@ const AppStore = configureStore({
      You_Tube_Data :YouTubeData,
      LiveChatData : LiveChatSlice,
      ToggleChatBox : ChatBoxDisplay,
+      FilteredItems: FilterItems,
+      SearchErrorMessage: SearchMessage
     }
 })
 
