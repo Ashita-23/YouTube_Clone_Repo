@@ -27,7 +27,8 @@ useEffect(()=>{
 
 
     return(
-        <div>
+        <div className="border border-red-600 overflow-scroll cursor-pointer scroll-smooth snap-y snap-normal 
+        md:h-[40rem] flex flex-row flex-wrap justify-center  lg:h-[40rem] xl:h-[40rem] flex flex-row flex-wrap justify-center" >
         {
             data.map((data)=> <VideoCard data={data} key={data?.id} />)
         }

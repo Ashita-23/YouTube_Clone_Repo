@@ -3,7 +3,7 @@ module.exports = {
   content:  ["./src/**/*.js"],
   theme: {
     screens: {
-      'xsm': '481px' ,
+      'xsm': '320px' ,
         // => @media (min-width: 320px) { ... }
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -19,10 +19,11 @@ module.exports = {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+      '3xl':'1592px',
     },
     extend: {
       screens: {
-        'xsm': {'min': '320px', 'max': '481px'},
+        'xsm': {'min': '320px', 'max': '639px'},
         // => @media (min-width: 640px and max-width: 767px) { ... }
   
         'sm': {'min': '640px', 'max': '767px'},
@@ -38,6 +39,8 @@ module.exports = {
         // => @media (min-width: 1280px and max-width: 1535px) { ... }
   
         '2xl': {'min': '1536px' , 'max': '1590px'},
+        // => @media (min-width: 1536px) { ... }
+        '3xl': {'min': '1592px' , 'max': '1650px'},
         // => @media (min-width: 1536px) { ... }
       },
     },
