@@ -5,6 +5,7 @@ import  LiveChatBox  from "./LiveChatBox"
 import { useDispatch } from "react-redux"
 
 import CommentCounter from "../BodyComponents/Comments"
+import SuggestedCards from "../suggestedCards"
 // import { YouTube_API_UserKey } from "../../Utils/UTAPIs"
 
 const WatchPage = ()=>{
@@ -35,40 +36,40 @@ const getById = async () => {
     // console.log(id,"id")
     // console.log(search )
     return(<>
-       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex justify-around">
-       <div className= " w-[70%] border  mt-2 border-green-700">
-        <iframe width="1200" height="650" 
+       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex  md:flex-col  lg:flex-row  justify-around 2xl:flex-row  justify-around ">
+       <div className= " w-[90%] border  mt-2 border-green-700 sm:w-[95%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%]">
+        <iframe width="500" height="650" className=" sm:w-[570px] h-[350px] ml-2 md:w-[600px] h-[220px] lg:w-[600px] h-[320px] xl:w-[650px] h-[320px] 2xl:w-[700px] h-[320px] "
         src={"https://www.youtube.com/embed/" + search.get("v") }
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen></iframe>
-  <div  className="border border-yellow-600 h-[auto] w-[100%]">
-       <div className="border border-blue-600 h-[auto] w-[100%]"> 
-  <p className="py-2 text-lg font-semibold">{VideoData?.snippet?.title}</p>
-  <div className="flex items-center  w-[100%] ">
-  <span className="text-2xl  px-3 py-2 m-1 rounded-full bg-gray-100 hover:bg-gray-200"><i className="fa-regular fa-circle-user"></i></span>
-  <div className="flex flex-col ml-2 ">
-    <span className="font-semibold pr-2">{VideoData?.snippet?.channelTitle}</span>
-    <span className="text-xs text-gray-500">298K subscribers</span>
+  <div  className="border border-yellow-600 h-[auto] w-[100%] sm:">
+       <div className="border border-blue-600 h-[auto] w-[100%] sm:scroll-m-1"> 
+  <p className="py-2 text-sm font-semibold">{VideoData?.snippet?.title}</p>
+  <div className="flex items-center border border-blue-600 w-[100%] ">
+  <span className="text-sm  px-[0.2rem] py-[0.1rem] m-[0.1rem] rounded-full border border-blue-600 bg-gray-100 hover:bg-gray-200"><i className="fa-regular fa-circle-user"></i></span>
+  <div className="flex flex-col ml-[0.5rem] border border-blue-600">
+    <span className="font-semibold text-[0.6rem] pr-2">{VideoData?.snippet?.channelTitle}</span>
+    <span className="text-[0.5rem] text-gray-500">298K subscribers</span>
   </div>
-  <div className="p-1 ml-1 flex justify-between  w-[80%]">
-  <button className="rounded-full bg-slate-200 px-4 py-2 mx-2 text-sm font-semibold hover:bg-slate-300">Subscribe</button>
-  <div className="flex">
-  <div className=" rounded-full  ">
-  <button className="rounded-l-full border border-r-gray-700 bg-slate-200 px-4 py-2  text-sm font-semibold hover:bg-slate-300"><i class="fa-solid fa-thumbs-up"></i></button>
-  <button className="rounded-r-full border border-l-gray-700 bg-slate-200 px-4 py-2  text-sm font-semibold hover:bg-slate-300"><i class="fa-solid fa-thumbs-down"></i></button>
+  <div className="p-1 ml-1 flex justify-between items-center border border-blue-600  w-[80%]">
+  <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300">Subscribe</button>
+  <div className="flex items-center">
+  <div className=" rounded-full border border-red-500 ">
+  <button className="rounded-l-full border border-r-gray-700 bg-slate-200 px-2 py-1  text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-thumbs-up"></i></button>
+  <button className="rounded-r-full border border-l-gray-700 bg-slate-200 px-2 py-1  text-[0.7rem]  font-semibold hover:bg-slate-300"><i class="fa-solid fa-thumbs-down"></i></button>
   </div>
-  <button className="rounded-full bg-slate-200 px-4 py-2 mx-2 text-sm font-semibold hover:bg-slate-300"><i class="fa-solid fa-share"></i> Share</button>
-  <button className="rounded-full bg-slate-200 px-4 py-2 mx-2 text-sm font-semibold hover:bg-slate-300"><i class="fa-solid fa-arrow-down-long"></i> Download </button>
-  <button className="rounded-full bg-slate-200 px-4 py-2 mx-2 text-sm font-semibold hover:bg-slate-300"><i class="fa-solid fa-hand-holding-dollar"></i> thanks</button>
-  <button className="rounded-full bg-slate-200 px-4 py-2 mx-2 text-sm font-semibold hover:bg-slate-300"><i class="fa-solid fa-scissors"></i> clip</button>
-  <button className="rounded-full bg-slate-200 px-4 py-2 mx-2 text-sm font-semibold hover:bg-slate-300 "><i class="fa-solid fa-bars"></i></button>
+  <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-share"></i> </button>
+  <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-arrow-down-long"></i> </button>
+  <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-hand-holding-dollar"></i></button>
+  <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-scissors"></i> </button>
+  <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300 "><i class="fa-solid fa-bars"></i></button>
   </div>
   </div>
   </div>
 
        </div>
        <div className="rounded-2xl flex flex-col h-[auto] px-2 bg-slate-200 ">
-        <div className="w-[100%] h-[auto]   ">
+        <div className="w-[100%] h-[auto]">
             <span className="font-semibold text-sm text-gray-600">{VideoData?.statistics?.viewCount} views</span>{" "}
             <span className="font-semibold text-sm text-gray-600" > {VideoData?.snippet?.publishedAt.slice(0,10)}</span><br></br>
             <span className="font-semibold text-sm text-gray-600" >{VideoData?.snippet?.title}</span>
@@ -85,7 +86,11 @@ const getById = async () => {
        </div>
       <CommentCounter></CommentCounter>
       </div>
+      <div className="flex flex-col border  border-green-500  md:w-[96%] lg:w-[30%] xl:w-[35%] 2xl:w-[30%]">
+
      <LiveChatBox/>
+     <SuggestedCards/>
+      </div>
          </div>
     </>)
 }

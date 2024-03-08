@@ -6,7 +6,7 @@ import {YT_search_API} from "../Utils/UTAPIs"
 import { ToggleMenu } from "../RStore/ToggelSlice"
 import { AddToCache } from "../RStore/SearchCacheSlice"
 import { AddItems } from "../RStore/FilterItemsSlice"
-import { OpenSearchError,CloseSearchError } from "../RStore/NothingFoundToggel"
+// import { OpenSearchError,CloseSearchError } from "../RStore/NothingFoundToggel"
 import {AddSearchText} from "../RStore/SearchItemSlice"
 // import {Add_UT_Data} from "../RStore/YouTubeDataSlice"
 // import useDataToFilter from "../helper/useDataToFilter"
@@ -28,6 +28,7 @@ const [search,setSearch] = useState("")
 // console.log(search,"search state")
 const [Suggetions , setSuggetions] = useState([""])
 const [ShowSuggetions , setShowSuggetions] = useState(false)
+
 
 
 
@@ -53,6 +54,7 @@ useEffect(()=>{
 
 
 
+
 const getSearch = async () =>{
     const Search_API  = await fetch(YT_search_API+search)
     const Search_API_Json = await Search_API.json()
@@ -70,33 +72,33 @@ const getSearch = async () =>{
   }
 
 
-    return(<div className="flex justify-between bg-white px-4 py-2 pr-5 fixed w-[100%] z-10" >
-            <div className=" flex  w-[12rem] justify-evenly items-center"><span className="text-2xl"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
-          <img src={YT_LOGO} alt="YT_logo" className="w-32 ml-2"/></div>
+    return(<div className="flex justify-between bg-white px-1 py-1 pr-1 fixed w-[100%] z-10 border border-red-700 " >
+            <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700"><span className="text-md"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
+          <img src={YT_LOGO} alt="YT_logo" className="w-[60px] ml-2"/></div>
             {/* {________---------- SEARCH INPUT BOX  -----------_______________} */}
             <form onSubmit={(e)=>{
-              e.preventDefault()}}  className=" w-[50rem] flex">
+              e.preventDefault()}}  className=" w-6/12 flex justify-evenly items-center border border-green-700">
             
             <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search"
-             className="border px-4 border-black-400 rounded-l-full w-[40rem] focus:outline outline-blue-400" 
+             className="border text-sm px-2 py-1 rounded-l-full w-8/12 border-black-400  focus:outline outline-blue-400" 
                 onFocus={()=>setShowSuggetions(true)}
                 onBlur={()=>setShowSuggetions(false)}
              />
 
-            <span  className="text-xl px-3 py-2  border border-black-200 rounded-r-full mr-2 bg-gray-100 hover:bg-gray-300"  >
+            <span  className="text-sm px-1 py-1  border border-black-200 rounded-r-full mr-1 bg-gray-100 hover:bg-gray-300"  >
             <i onClick={()=>{
                dispatch(AddSearchText(search))
 
                const FilterCard = FilterSearchItems(UT_Data_From_Store,SearchText_FromBtns)
-              (FilterCard.length===0)?dispatch(OpenSearchError(true)):dispatch(CloseSearchError(false))
-               console.log(FilterCard,"FIFN")
+               console.log(FilterCard.length,"FIFN")
                if (FilterCard.length !== 0 ){
                 dispatch( AddItems(FilterCard))
+             
                }
             }}
              
              className="fa-solid fa-magnifying-glass"></i></span>
-            <span  className="text-xl px-4 py-2 border border-black-200 rounded-full mx-2 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
+            <span  className="text-ms px-2 py-1 border border-black-200 rounded-full mx-1 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
             </form>
            {ShowSuggetions && <div className="absolute mt-12 ml-[35rem] bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg" >
                 <ul> 
@@ -104,10 +106,10 @@ const getSearch = async () =>{
                 </ul>
             </div>}
             
-            <div  className="w-[10rem] flex justify-around">
-            <span className="text-2xl  px-3 py-2 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-square-plus"></i></span>
-            <span className="text-2xl  px-3 py-2 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-bell"></i></span>
-            <span className="text-2xl  px-3 py-2  rounded-full bg-gray-50 hover:bg-gray-200 "><i className="fa-regular fa-circle-user"></i></span>
+            <div  className="w-3/12 flex justify-evenly items-center border border-blue-900">
+            <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-square-plus"></i></span>
+            <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-bell"></i></span>
+            <span className="text-sm px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 "><i className="fa-regular fa-circle-user"></i></span>
             </div>
            
         </div>)

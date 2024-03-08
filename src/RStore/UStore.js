@@ -17,6 +17,7 @@ const AppStore = configureStore({
      ToggleChatBox : ChatBoxDisplay,
       FilteredItems: FilterItems,
       SearchErrorMessage: SearchMessage
+      // ScreenSize : ScreenWidth
     }
 })
 
