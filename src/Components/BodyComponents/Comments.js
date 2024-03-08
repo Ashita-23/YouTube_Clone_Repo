@@ -5,7 +5,7 @@ import{commentsData} from "../../Utils/UTAPIs"
 const CommentCard= ({data})=>{
     const {name,text} = data
     return(
-        <div className="h-[auto] w-[100%] flex bg-slate-200 m-1 rounded-lg">
+        <div className="h-[auto] w-[100%] flex bg-slate-200 m-1 rounded-lg ">
               <span className="text-2xl  px-3 py-2 m-1 rounded-full bg-gray-100 hover:bg-gray-200"><i className="fa-regular fa-circle-user"></i></span>
               <div className="px-2">
                 <p >{name}</p>

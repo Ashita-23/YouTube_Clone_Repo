@@ -5,7 +5,7 @@ const MainCounter = ()=>{
 
 
   
-    return(<div className=" flex w-[100%] h-[auto]  border border-blue-800 ">
+    return(<div className=" flex w-12/12 h-[auto] m-0 p-0 border border-blue-300 ">
         <SideBar></SideBar>
         {/* videoCards counter */}
         <Outlet></Outlet>

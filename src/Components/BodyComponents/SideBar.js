@@ -1,14 +1,31 @@
 import {useSelector} from "react-redux"
+import {useEffect, useState} from "react"
 
 const SideBar = ()=>{
 
     const IsMenuOpen = useSelector((store)=>store.Toggle.IsMenuOpen)
     // console.log(IsMenuOpen,"IsMenuOpen")
+    const [SecNav,setSecNav]=useState(false)
+    // console.log(SecNav,"SN")
 
+const  [screenSize] = useState({size:window.screen.width})
+
+
+
+useEffect(()=>{
+
+    if(screenSize.size< 820){
+        setSecNav(true)
+    }else if (screenSize.size > 820 ) {
+        setSecNav(false)
+    }
+},[])
+      
+
+
+// if(screenSize < 820 ? setScreenSize(true):setScreenSize(false))
     if (!IsMenuOpen) return null;
-    return(<>
-           {/* side bar */}
-           <div className="border border-green-950 w-[10%] h-[54rem] mt-16 px-1 overflow-y-scroll scroll-smooth scrollbar-hide snap-y ">
+    return (!SecNav? <div className=" flex flex-col border-pink-300 w-[10%] h-[54rem] mt-16 px-1 overflow-y-scroll scroll-smooth scrollbar-hide snap-y z-5 ">
             <ul className="p-1 mt-2 text-base mb-2 border-b-2">
                 <li className="px-2 py-1 capitalize mx-1  rounded-lg hover:bg-gray-300">Home</li>
                 <li className="px-2 py-1 capitalize mx-1  rounded-lg hover:bg-gray-300">Shorts</li>
@@ -54,8 +71,15 @@ const SideBar = ()=>{
             <p className="text-sm p-1 font-semibold text-gray-500">TermsPrivacyPolicy & SafetyHow YouTube worksTest new features</p>
             <p className="text-sm p-1 font-semibold text-gray-500">© 2023 Google LLC</p>
            </div>
+        </div>:
+        <div className="border border-red-900 mt-10 ml-[-5px] h-[20rem]  flex flex-col p-1">
+            <span><i class="fa-solid fa-house"></i></span>
+            <span><i class="fa-solid fa-film"></i></span>
+            <span><i class="fa-regular fa-square-plus"></i></span>
+            <span><i class="fa-regular fa-circle-user"></i></span>
         </div>
-    </>)
+         )
+    
 }
 
 export default SideBar
