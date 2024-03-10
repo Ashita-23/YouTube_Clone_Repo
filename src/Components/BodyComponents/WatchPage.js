@@ -36,13 +36,13 @@ const getById = async () => {
     // console.log(id,"id")
     // console.log(search )
     return(<>
-       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex xsm:flex-col sm:flex-col  md:flex-col  lg:flex-row  justify-around 2xl:flex-row  justify-around ">
-       <div className= " w-[90%] border  mt-2 border-green-700 sm:w-[95%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%]">
-        <iframe width="500" height="650" className=" sm:w-[570px] h-[350px] ml-2 md:w-[600px] h-[220px] lg:w-[600px] h-[320px] xl:w-[650px] h-[320px] 2xl:w-[700px] h-[320px] "
+       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex xsm:flex-col sm:flex-col w-[100%]  md:flex-col  lg:flex-row  justify-around 2xl:flex-row justify-around 3xl:2xl:flex-row justify-around ">
+       <div className= " w-[90%] border  mt-2 border-green-700 xsm:w-[100%]  sm:w-[95%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] 3xl:w-[65%] 4xl:w-[65%] 5xl:w-8/12 border border-gray-800">
+        <iframe width="500" height="650" className="xsm:w-[320px] h-[150px]  sm:w-[570px] h-[350px] ml-2 md:w-[600px] h-[220px] lg:w-[600px] h-[320px] xl:w-[650px] h-[320px] 2xl:w-[700px] h-[320px] 3xl:w-[790px] h-[420px] 4xl:w-[730px] h-[320px] "
         src={"https://www.youtube.com/embed/" + search.get("v") }
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen></iframe>
-  <div  className="border border-yellow-600 h-[auto] w-[100%] sm:">
+  <div  className="border border-yellow-600 h-[auto] w-[100%] sm: xsm:w-[100%]">
        <div className="border border-blue-600 h-[auto] w-[100%] sm:scroll-m-1"> 
   <p className="py-2 text-sm font-semibold">{VideoData?.snippet?.title}</p>
   <div className="flex items-center border border-blue-600 w-[100%] ">
@@ -51,7 +51,7 @@ const getById = async () => {
     <span className="font-semibold text-[0.6rem] pr-2">{VideoData?.snippet?.channelTitle}</span>
     <span className="text-[0.5rem] text-gray-500">298K subscribers</span>
   </div>
-  <div className="p-1 ml-1 flex justify-between items-center border border-blue-600  w-[80%]">
+  <div className="p-1 ml-1 flex justify-between items-center border border-blue-600  w-[80%] xsm:p-[0.2rem] ">
   <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300">Subscribe</button>
   <div className="flex items-center">
   <div className=" rounded-full border border-red-500 ">
@@ -86,7 +86,7 @@ const getById = async () => {
        </div>
       <CommentCounter></CommentCounter>
       </div>
-      <div className="flex flex-col border  border-green-500  md:w-[96%] lg:w-[34%] xl:w-[35%] 2xl:w-[30%] h-[140vh]">
+      <div className="flex flex-col border  border-green-500  md:w-[96%] lg:w-[34%] xl:w-[35%] 2xl:w-[30%] h-[140vh] 3xl:w-[30%] 4xl:w-[30%] 5xl:w-[20%] border border-green-950 6xl:w-[20%]">
 
      <LiveChatBox/>
      <SuggestedCards/>
