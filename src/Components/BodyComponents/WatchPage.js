@@ -36,7 +36,7 @@ const getById = async () => {
     // console.log(id,"id")
     // console.log(search )
     return(<>
-       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex xsm:flex-col sm:flex-col w-[100%]  md:flex-col  lg:flex-row  justify-around 2xl:flex-row justify-around 3xl:2xl:flex-row justify-around ">
+       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex xsm:flex-col sm:flex-col w-[100%]  md:flex-col items-center lg:flex-row  justify-around 2xl:flex-row justify-around 3xl:2xl:flex-row justify-around ">
        <div className= " w-[90%] border  mt-2 border-green-700 xsm:w-[100%]  sm:w-[95%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] 3xl:w-[65%] 4xl:w-[65%] 5xl:w-8/12 border border-gray-800">
         <iframe width="500" height="650" className="xsm:w-[320px] h-[150px]  sm:w-[570px] h-[350px] ml-2 md:w-[600px] h-[220px] lg:w-[600px] h-[320px] xl:w-[650px] h-[320px] 2xl:w-[700px] h-[320px] 3xl:w-[790px] h-[420px] 4xl:w-[730px] h-[320px] "
         src={"https://www.youtube.com/embed/" + search.get("v") }
@@ -86,7 +86,7 @@ const getById = async () => {
        </div>
       <CommentCounter></CommentCounter>
       </div>
-      <div className="flex flex-col border  border-green-500  md:w-[96%] lg:w-[34%] xl:w-[35%] 2xl:w-[30%] h-[140vh] 3xl:w-[30%] 4xl:w-[30%] 5xl:w-[20%] border border-green-950 6xl:w-[20%]">
+      <div className="flex flex-col border  border-green-500  md:w-[96%] lg:w-[34%] items-center xl:w-[35%] 2xl:w-[30%] h-[140vh] 3xl:w-[30%] 4xl:w-[30%] 5xl:w-[20%] border border-green-950 6xl:w-[20%]">
 
      <LiveChatBox/>
      <SuggestedCards/>

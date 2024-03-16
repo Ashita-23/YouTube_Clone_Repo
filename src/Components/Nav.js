@@ -8,6 +8,7 @@ import { AddToCache } from "../RStore/SearchCacheSlice"
 import { AddItems } from "../RStore/FilterItemsSlice"
 // import { OpenSearchError,CloseSearchError } from "../RStore/NothingFoundToggel"
 import {AddSearchText} from "../RStore/SearchItemSlice"
+import { Link } from "react-router-dom"
 // import {Add_UT_Data} from "../RStore/YouTubeDataSlice"
 // import useDataToFilter from "../helper/useDataToFilter"
 
@@ -72,12 +73,13 @@ const getSearch = async () =>{
   }
 
 
-    return(<div className="flex justify-between bg-white px-1 py-1 pr-1 fixed w-[100%] z-10 border border-red-700 " >
-            <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700 sm:w-3/12"><span className="text-md"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
-          <img src={YT_LOGO} alt="YT_logo" className="w-[60px] ml-2"/></div>
+    return(<div className="flex justify-between bg-white px-1 py-1 pr-1 fixed w-[100%] z-10 border border-red-700 lg:px-12 " >
+            <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700 sm:w-3/12 "><span className="text-md"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
+      <img src={YT_LOGO} alt="YT_logo" className="w-[60px] ml-2"></img>
+        </div>
             {/* {________---------- SEARCH INPUT BOX  -----------_______________} */}
             <form onSubmit={(e)=>{
-              e.preventDefault()}}  className=" w-6/12 flex justify-evenly items-center border border-green-700  sm:w-6/12">
+              e.preventDefault()}}  className=" w-6/12 flex justify-evenly items-center border border-green-700  sm:w-6/12 ">
             
             <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search"
              className="border text-sm px-2 py-1 rounded-l-full w-8/12 border-black-400  focus:outline outline-blue-400 sm:w-10/12 md:w-11/12 lg:w-11/12 xl:w-11/12 2xl:w-11/12 3xl:w-11/12 4xl:w-11/12" 
@@ -107,7 +109,7 @@ const getSearch = async () =>{
                 </ul>
             </div>}
             
-            <div  className="w-3/12 flex justify-evenly items-center border border-blue-900 sm:w-3/12">
+            <div  className="w-3/12 flex justify-evenly items-center border border-blue-900 sm:w-3/12  ">
             <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-square-plus"></i></span>
             <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-bell"></i></span>
             <span className="text-sm px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 "><i className="fa-regular fa-circle-user"></i></span>

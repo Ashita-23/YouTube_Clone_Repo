@@ -1,5 +1,6 @@
 import {useSelector} from "react-redux"
 import {useEffect, useState} from "react"
+import { Link } from "react-router-dom"
 
 const SideBar = ()=>{
 
@@ -72,11 +73,11 @@ useEffect(()=>{
             <p className="text-sm p-1 font-semibold text-gray-500">© 2023 Google LLC</p>
            </div>
         </div>:
-        <div className="border border-red-900 mt-10 ml-[-5px] h-[20rem]  flex flex-col p-1">
-            <span><i class="fa-solid fa-house"></i></span>
-            <span><i class="fa-solid fa-film"></i></span>
-            <span><i class="fa-regular fa-square-plus"></i></span>
-            <span><i class="fa-regular fa-circle-user"></i></span>
+        <div className="border border-red-900 mt-10 ml-[-5px] h-[20rem]  flex flex-col pt-5 xsm:pl-1 pr-1 pt-5 sm:pl-1 pr-1 pt-5 md:pl-1 pr-1 pt-5  ">
+            <span className="text-md p-1"><i className="fa-solid fa-house"></i></span>
+            <span className="text-md p-1"><i className="fa-solid fa-film"></i></span>
+            <span className="text-md p-1"><i className="fa-regular fa-square-plus"></i></span>
+            <span className="text-md p-1"><i className="fa-regular fa-circle-user"></i></span>
         </div>
          )
     
