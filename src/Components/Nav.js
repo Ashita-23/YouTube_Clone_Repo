@@ -73,13 +73,13 @@ const getSearch = async () =>{
   }
 
 
-    return(<div className="flex justify-between bg-white  fixed xxsm:w-[100%] xsm:w-[100%] p-0 sm:w-[100%] px-1 py-1 pr-1 md:w-[100%] lg:w-[95%] px-1 py-1 pr-1 xl:w-[100%] z-10 border border-red-700  " >
+    return(<div className="flex justify-between bg-white w-[100%] fixed xxsm:w-[100%] xsm:w-[100%] p-0 sm:w-[100%] px-1 py-1 pr-1 md:w-[100%] lg:w-[100%] px-1 py-1 pr-1 xl:w-[100%] 2xl:w-[100%]  z-10 border border-red-700  " >
             <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700 sm:w-3/12 "><span className="text-md xxsm:text-sm xsm:text-sm"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
-      <img src={YT_LOGO} alt="YT_logo" className="w-[60px] xxsm:w-[55%] xsm:w-[55%] ml-2"></img>
+    <img src={YT_LOGO} alt="YT_logo" className="w-[60px] xxsm:w-[55%] xsm:w-[55%] ml-2"></img>
         </div>
             {/* {________---------- SEARCH INPUT BOX  -----------_______________} */}
             <form onSubmit={(e)=>{
-              e.preventDefault()}}  className=" w-6/12 flex justify-evenly items-center border border-green-700  sm:w-6/12 relative ">
+              e.preventDefault()}}  className=" w-6/12   flex justify-evenly items-center border border-green-700  sm:w-6/12 relative ">
             
             <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search"
              className="border text-sm px-2 py-1 rounded-l-full w-8/12 border-black-400  focus:outline outline-blue-400 sm:w-10/12 md:w-11/12 lg:w-11/12 xl:w-11/12 2xl:w-11/12 3xl:w-11/12 4xl:w-11/12" 
@@ -110,7 +110,7 @@ const getSearch = async () =>{
                 </ul>
             </div>}
             
-            <div  className="w-3/12 flex justify-evenly items-center border border-blue-900 sm:w-3/12   ">
+            <div  className="w-3/12 mx-20 flex justify-evenly items-center border border-blue-900 xxsm:mx-0 xsm:mx-2 sm:w-3/12 mx-6 md:mx-8  xl:mx-10 2xl:mx-20 ">
             <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 xxsm:text-[0.6rem] xsm:text-[0.6rem]"><i className="fa-regular fa-square-plus"></i></span>
             <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 xxsm:text-[0.6rem] xsm:text-[0.6rem]"><i className="fa-regular fa-bell"></i></span>
             <span className="text-sm px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 xxsm:text-[0.6rem] xsm:text-[0.6rem] "><i className="fa-regular fa-circle-user"></i></span>
