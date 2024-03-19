@@ -66,9 +66,9 @@ const DoSearch = (text)=>{
 }
 //  
    return( <div className="border border-blue-800 w-[100%] px-0 py-0 mt-16 h-[100%] sm:">
-    <div className="flex w-[91%] h-[5rem]  mt-[-2px]  bg-white fixed py-3 drop-shadow-sm overflow-x-scroll scroll-smooth scrollbar-thin
+    <div className="flex w-[100%] h-[5rem]  mt-[-2px]  bg-white fixed py-3 drop-shadow-sm overflow-x-scroll scroll-smooth scrollbar-thin
     scrollbar-w-thin scrollbar-rounded-full items-center scrollbar-thumb-gray-600 scrollbar-track-gray-200  snap-x xxsm:w-[100%] p-2 h-[2.8rem]
-    xsm:p-2 h-[2.8rem] w-[100%] border border-green-600 sm:w-[100%] h-[4rem]
+    xsm:p-2 h-[2.8rem] w-[100%] border border-green-600 sm:w-[100%] 
      md:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:w-[100%] 3xl:w-[100%] 4xl:w-[100%] 5xl:w-[100%] 6xl:w-[100%]">
             {Button_List.map((Btn_text)=><button className="bg-gray-300 cursor-pointer mx-2 text-md rounded-md px-3 text-black-300 py-1 xxsm:mx-[0.1rem] xsm:text-sm mx-1  sm:mx-2 text-md md:text-md px-3 py-2 mx-2 
             lg:text-md px-3 py-2 mx-2 xl:text-md py-2 px-3 " 

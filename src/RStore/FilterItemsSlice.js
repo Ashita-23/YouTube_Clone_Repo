@@ -15,5 +15,3 @@ reducers:{
 
 export const {AddItems}= FilterItems.actions
 export default FilterItems.reducer
-
-// splice(1, 1, "Lemon", "Kiwi");
