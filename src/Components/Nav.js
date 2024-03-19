@@ -73,13 +73,13 @@ const getSearch = async () =>{
   }
 
 
-    return(<div className="flex justify-between bg-white px-1 py-1 pr-1 fixed  xsm:w-[100%] sm:w-[100%] md:w-[100%] lg:w-[95%]  xl:w-[100%] z-10 border border-red-700  " >
-            <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700 sm:w-3/12 "><span className="text-md"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
-      <img src={YT_LOGO} alt="YT_logo" className="w-[60px] ml-2"></img>
+    return(<div className="flex justify-between bg-white  fixed xxsm:w-[100%] xsm:w-[100%] p-0 sm:w-[100%] px-1 py-1 pr-1 md:w-[100%] lg:w-[95%] px-1 py-1 pr-1 xl:w-[100%] z-10 border border-red-700  " >
+            <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700 sm:w-3/12 "><span className="text-md xxsm:text-sm"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
+      <img src={YT_LOGO} alt="YT_logo" className="w-[60px] xxsm:w-[55%] ml-2"></img>
         </div>
             {/* {________---------- SEARCH INPUT BOX  -----------_______________} */}
             <form onSubmit={(e)=>{
-              e.preventDefault()}}  className=" w-6/12 flex justify-evenly items-center border border-green-700  sm:w-6/12 ">
+              e.preventDefault()}}  className=" w-6/12 flex justify-evenly items-center border border-green-700  sm:w-6/12 relative ">
             
             <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search"
              className="border text-sm px-2 py-1 rounded-l-full w-8/12 border-black-400  focus:outline outline-blue-400 sm:w-10/12 md:w-11/12 lg:w-11/12 xl:w-11/12 2xl:w-11/12 3xl:w-11/12 4xl:w-11/12" 
@@ -87,7 +87,7 @@ const getSearch = async () =>{
                 onBlur={()=>setShowSuggetions(false)}
              />
 
-            <span  className="text-sm px-1 py-1  border border-black-200 rounded-r-full mr-1 bg-gray-100 hover:bg-gray-300"  >
+            <span  className="text-sm px-1 py-1  border border-black-200 rounded-r-full mr-1 cursor-pointer  xxsm:text-[0.6rem] bg-gray-100 hover:bg-gray-300"  >
             <i onClick={()=>{
                dispatch(AddSearchText(search))
 
@@ -99,20 +99,21 @@ const getSearch = async () =>{
                }
             }}
              
-             className="fa-solid fa-magnifying-glass"></i></span>
-            <span  className="text-ms px-2 py-1 border border-black-200 rounded-full mx-1 bg-gray-100 hover:bg-gray-300"><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
+             className="fa-solid fa-magnifying-glass "></i></span>
+            <span  className="text-ms px-2 py-1 border border-black-200 rounded-full mx-1 bg-gray-100  xxsm:text-[0.6rem] hover:bg-gray-300 "><i className="fa-solid fa-microphone hover:bg-black-200"></i></span>
             </form>
-           {ShowSuggetions && <div className="absolute mt-12 ml-[35rem] bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg xsm:ml-[8.9rem] w-[18rem] sm:mt-10 ml-[8.9rem] w-[18rem] md:ml-[10rem] w-[18rem] lg:ml-[14rem] w-[18rem] xl:ml-[17rem] w-[18rem] 2xl:ml-[20rem] w-[18rem]  3xl: 4xl: 5xl:" >
+           {ShowSuggetions && <div className="absolute mt-12 ml-[35rem] bg-gray-200 w-[40rem] rounded-lg pt-2 pb-1 shadow-lg  xxsm:w-[300px] border border-red-400 text-[0.6rem] mt-[] ml-[0.6rem] 
+            xsm:ml-[8.9rem] w-[18rem] sm:mt-10 ml-[8.9rem] w-[18rem] md:ml-[10rem] w-[18rem] lg:ml-[14rem] w-[18rem] xl:ml-[17rem] w-[18rem] 2xl:ml-[20rem] w-[18rem]  3xl: 4xl: 5xl:" >
                 <ul> 
-                  {Suggetions.map((Suge_data)=> <li className="text-base font-bold px-3 py-1 bg-gray-200 hover:bg-gray-300 xsm:text-sm "
-                   onClick={()=>{dispatch(AddSearchText(Suge_data))}} ><i className="fa-solid fa-magnifying-glass text-sm px-1"></i>{Suge_data}</li>)}
+                  {Suggetions.map((Suge_data)=> <li className="text-base cursor-pointer font-bold px-3 py-1 bg-gray-200 hover:bg-gray-300 xsm:text-sm  xxsm:text-[0.6rem] py-[0.1rem]"
+                   onClick={()=>{dispatch(AddSearchText(Suge_data))}} ><i className="fa-solid fa-magnifying-glass text-sm px-1  xxsm:text-[0.6rem]"></i>{Suge_data}</li>)}
                 </ul>
             </div>}
             
-            <div  className="w-3/12 flex justify-evenly items-center border border-blue-900 sm:w-3/12  ">
-            <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-square-plus"></i></span>
-            <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200"><i className="fa-regular fa-bell"></i></span>
-            <span className="text-sm px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 "><i className="fa-regular fa-circle-user"></i></span>
+            <div  className="w-3/12 flex justify-evenly items-center border border-blue-900 sm:w-3/12   ">
+            <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 xxsm:text-[0.6rem]"><i className="fa-regular fa-square-plus"></i></span>
+            <span className="text-sm  px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 xxsm:text-[0.6rem]"><i className="fa-regular fa-bell"></i></span>
+            <span className="text-sm px-2 py-1 rounded-full bg-gray-50 hover:bg-gray-200 xxsm:text-[0.6rem] "><i className="fa-regular fa-circle-user"></i></span>
             </div>
            
         </div>)

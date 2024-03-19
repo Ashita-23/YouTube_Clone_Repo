@@ -67,10 +67,10 @@ const DoSearch = (text)=>{
 //  
    return( <div className="border border-blue-800 w-[100%] px-0 py-0 mt-16 h-[100%] sm:">
     <div className="flex w-[91%] h-[5rem]  mt-[-2px]  bg-white fixed py-3 drop-shadow-sm overflow-x-scroll scroll-smooth scrollbar-thin
-    scrollbar-w-thin scrollbar-rounded-full items-center scrollbar-thumb-gray-600 scrollbar-track-gray-200  snap-x 
+    scrollbar-w-thin scrollbar-rounded-full items-center scrollbar-thumb-gray-600 scrollbar-track-gray-200  snap-x xxsm:w-[100%] p-2 h-[2.8rem]
     xsm:p-2 h-[2.8rem] w-[100%] border border-green-600 sm:w-[100%] h-[4rem]
      md:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:w-[100%] 3xl:w-[100%] 4xl:w-[100%] 5xl:w-[100%] 6xl:w-[100%]">
-            {Button_List.map((Btn_text)=><button className="bg-gray-300 mx-2 text-md rounded-md px-3 text-black-300 py-1 xsm:text-sm mx-1  sm:mx-2 text-md md:text-md px-3 py-2 mx-2 
+            {Button_List.map((Btn_text)=><button className="bg-gray-300 cursor-pointer mx-2 text-md rounded-md px-3 text-black-300 py-1 xxsm:mx-[0.1rem] xsm:text-sm mx-1  sm:mx-2 text-md md:text-md px-3 py-2 mx-2 
             lg:text-md px-3 py-2 mx-2 xl:text-md py-2 px-3 " 
             onClick={()=>{ DoSearch(Btn_text)
             const FilterCards = FilterBtnListItems(UT_Data_From_Store,SearchText_FromBtns)
@@ -83,7 +83,7 @@ const DoSearch = (text)=>{
     </div>
     {/* <div className={FilteredItems.length === 0?"border border-gray-400 h-[6rem] mt-[5rem] hidden items-center justify-center ":"border border-gray-400 h-[6rem] mt-[5rem] flex items-center justify-center"}>
     <p className="text-2xl">nothing has match,try something else...</p></div> */}
-<div className="flex flex-wrap justify-start border pt-8 border-red-400 w-[100%] h-[51rem] scroll-smooth overflow-y-scroll scrollbar-hide snap-y mt-12
+<div className="flex flex-wrap justify-start border pt-8 border-red-400 w-[100%] h-[51rem] scroll-smooth overflow-y-scroll scrollbar-hide snap-y mt-12 xxsm:justify-center
 xsm:justify-center sm:justify-center md:justify-center lg:justify-center xl:justify-center 2xl:justify-center 3xl:justify-center 4xl:justify-center 5xl:justify-center  6xl:justify-center  ">
 {filter_UT_Data[0] && <AddVideoCard data={UT_Data[0]} key={UT_Data[0].id} ></AddVideoCard>}
 {filter_UT_Data?.map((data)=>{ 

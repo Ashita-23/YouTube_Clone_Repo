@@ -3,6 +3,8 @@ module.exports = {
   content:  ["./src/**/*.js"],
   theme: {
     screens: {
+      'xxsm':'260px',
+      // => @media (min-width: 320px) { ... }
       'xsm': '320px' ,
         // => @media (min-width: 320px) { ... }
       'sm': '640px',
@@ -30,6 +32,8 @@ module.exports = {
     },
     extend: {
       screens: {
+        'xxsm': {'min': '260px', 'max': '319px'},
+        // => @media (min-width: 640px and max-width: 767px) { ... }
         'xsm': {'min': '320px', 'max': '639px'},
         // => @media (min-width: 640px and max-width: 767px) { ... }
   
