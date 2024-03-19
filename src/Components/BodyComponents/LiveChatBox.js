@@ -47,7 +47,7 @@ const  isChatBoxOpen = useSelector((store)=>store.ToggleChatBox.IsChatBoxOpen)
             }
 
             return(  isChatBoxOpen ? 
-    <div className="w-[24%] mt-2 mx-2 p-2 border h-[57%] shadow-sm flex item-center justify-center rounded-xl md:border border-red-500 w-[94%] h-[44%] lg:w-[90%] xl:w-[96%] xl:h-[48%]  2xl:w-[96%]">
+    <div className="w-[24%] mt-2 mx-2 p-2 border h-[57%] shadow-sm flex item-center justify-center rounded-xl sm: md:border border-red-500 w-[94%] h-[44%] lg:w-[90%] xl:w-[96%] xl:h-[48%]  2xl:w-[96%]">
     <div className="w-[94%] my-4  h-[94%]  border  border-slate-400 rounded-xl overflow-hidden md:h-[94%] lg:h-[94%] xl:h-[94%] 2xl:my-2 h-[96%]  overflow-hidden" >
         <h1 className="flex  w-[100%] px-3 py-2 h-[6%] bg-slate-300 justify-between content-center border border-b-slate-400 lg:py-1 2xl:py-1 " >
         <span className="text-sm font-medium 2xl:py-[0.1rem]">Top Chat </span> <span className="text-md font-medium ">:</span></h1>

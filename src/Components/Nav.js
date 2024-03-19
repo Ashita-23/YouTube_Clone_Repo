@@ -73,7 +73,7 @@ const getSearch = async () =>{
   }
 
 
-    return(<div className="flex justify-between bg-white px-1 py-1 pr-1 fixed w-[100%] z-10 border border-red-700 lg:px-12 " >
+    return(<div className="flex justify-between bg-white px-1 py-1 pr-1 fixed  xsm:w-[100%] sm:w-[100%] md:w-[100%] lg:w-[95%]  xl:w-[100%] z-10 border border-red-700  " >
             <div className=" flex  w-3/12 justify-evenly items-center border  border-red-700 sm:w-3/12 "><span className="text-md"><i className="fa-solid fa-bars" onClick={()=>ToggleSideBar()}></i></span>
       <img src={YT_LOGO} alt="YT_logo" className="w-[60px] ml-2"></img>
         </div>

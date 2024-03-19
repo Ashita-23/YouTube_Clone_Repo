@@ -36,9 +36,9 @@ const getById = async () => {
     // console.log(id,"id")
     // console.log(search )
     return(<>
-       <div className="mt-14 pt-2 border w-[90%]  border-red-700 flex xsm:flex-col sm:flex-col w-[100%]  md:flex-col items-center lg:flex-row  justify-around 2xl:flex-row justify-around 3xl:2xl:flex-row justify-around ">
-       <div className= " w-[90%] border  mt-2 border-green-700 xsm:w-[100%]  sm:w-[95%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] 3xl:w-[65%] 4xl:w-[65%] 5xl:w-8/12 border border-gray-800">
-        <iframe width="500" height="650" className="xsm:w-[320px] h-[150px]  sm:w-[570px] h-[350px] ml-2 md:w-[600px] h-[220px] lg:w-[600px] h-[320px] xl:w-[650px] h-[320px] 2xl:w-[700px] h-[320px] 3xl:w-[790px] h-[420px] 4xl:w-[730px] h-[320px] "
+       <div className="mt-14 pt-2 border w-10/12  border-red-700 flex  xsm:flex-col sm:flex-col   md:flex-col lg:flex-row  justify-around 2xl:flex-row justify-around 3xl:2xl:flex-row justify-around ">
+       <div className= " w-[90%] border  mt-1 border-green-700 xsm:w-[100%]  sm:w-[100%] md:w-[100%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] 3xl:w-[65%] 4xl:w-[65%] 5xl:w-8/12 border border-gray-800">
+        <iframe   className="xsm:w-[100%] h-[15rem]  sm:w-[100%] h-[15rem]   md:w-[100%] h-[20rem]  lg:w-[100%] h-[21rem] xl:w-[100%] h-[21rem] 2xl:w-[100%] h-[22rem] 3xl:w-[100%] h-[22rem] 4xl:w-[100%] h-[22rem] "
         src={"https://www.youtube.com/embed/" + search.get("v") }
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen></iframe>
@@ -54,10 +54,10 @@ const getById = async () => {
   <div className="p-1 ml-1 flex justify-between items-center border border-blue-600  w-[80%] xsm:p-[0.2rem] ">
   <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300">Subscribe</button>
   <div className="flex items-center">
-  <div className=" rounded-full border border-red-500 ">
+  {/* <div className=" rounded-full border border-red-500 ">
   <button className="rounded-l-full border border-r-gray-700 bg-slate-200 px-2 py-1  text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-thumbs-up"></i></button>
   <button className="rounded-r-full border border-l-gray-700 bg-slate-200 px-2 py-1  text-[0.7rem]  font-semibold hover:bg-slate-300"><i class="fa-solid fa-thumbs-down"></i></button>
-  </div>
+  </div> */}
   <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-share"></i> </button>
   <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-arrow-down-long"></i> </button>
   <button className="rounded-full bg-slate-200 px-2 py-1 mx-1 text-[0.7rem] font-semibold hover:bg-slate-300"><i class="fa-solid fa-hand-holding-dollar"></i></button>
