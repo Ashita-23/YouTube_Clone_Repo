@@ -12,12 +12,12 @@ const AppStore = configureStore({
      Toggle : NavToggle,
      SearchCacheData : SearchCache,
      SearchText_FromBtns :SearchItems,
+     SearchItems:SearchItems,
      You_Tube_Data :YouTubeData,
      LiveChatData : LiveChatSlice,
      ToggleChatBox : ChatBoxDisplay,
       FilteredItems: FilterItems,
       SearchErrorMessage: SearchMessage
-      // ScreenSize : ScreenWidth
     }
 })
 
