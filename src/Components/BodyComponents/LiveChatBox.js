@@ -47,11 +47,11 @@ const  isChatBoxOpen = useSelector((store)=>store.ToggleChatBox.IsChatBoxOpen)
             }
 
             return(  isChatBoxOpen ? 
-    <div className="w-[24%] mt-2 mx-2 p-2 border h-[57%] shadow-sm flex item-center justify-center rounded-xl sm: md:border border-red-500 w-[94%] h-[44%] lg:w-[90%] xl:w-[96%] xl:h-[48%]  2xl:w-[96%]">
-    <div className="w-[94%] my-4  h-[94%]  border  border-slate-400 rounded-xl overflow-hidden md:h-[94%] lg:h-[94%] xl:h-[94%] 2xl:my-2 h-[96%]  overflow-hidden" >
-        <h1 className="flex  w-[100%] px-3 py-2 h-[6%] bg-slate-300 justify-between content-center border border-b-slate-400 lg:py-1 2xl:py-1 " >
+    <div className="w-[24%] mt-2 mx-2  p-[1.5rem] border border-red-500 h-[40rem] shadow-sm flex item-center justify-center rounded-xl xxsm:mb-2  xsm:mb-2  md: mb-2 w-[94%]  lg:w-[90%] xl:w-[96%] xl: 2xl:w-[96%]">
+    <div className="w-[94%] h-[100%] mb-[.5rem] border border-orange-400 overflow-hidden rounded-xl md: lg: xl: 2xl:my-2  " >
+        <h1 className="flex  w-[100%] px-3 py-2 h-[2.2rem] bg-slate-300 justify-between content-center border border-b-slate-400 lg:py-1 2xl:py-1 " >
         <span className="text-sm font-medium 2xl:py-[0.1rem]">Top Chat </span> <span className="text-md font-medium ">:</span></h1>
-        <div className="flex flex-col-reverse  overflow-y-scroll scroll-smooth scrollbar-thin snap-y w-[100%]  h-[73%]  ">
+        <div className="flex flex-col-reverse  overflow-y-scroll scroll-smooth scrollbar-thin snap-y w-[100%]  h-[75%] border border-blue-800 ">
            {ChatDataToDisplay.map((ChatData)=>( <LiveChatTextBox data = {ChatData} />)) }
         </div>
        <SendText/>
@@ -80,7 +80,7 @@ const SendText = () =>{
         name:"App User",
         text:addMessage }))
         setAddMessage("")
-        }} className="flex flex-col w-[100%]  h-[20%]  2xl:h-[20%] " >
+        }} className="flex flex-col w-[100%]  h-[7rem] border border-green-500 overflow-hidden " >
             <input type="text" placeholder="enter text" className="bg-slate-100 p-1 text-base outline-1 outline-blue-500 2xl:text-sm py-[0.2rem] "  value={addMessage} onChange={(e)=>setAddMessage(e.target.value)}/>
             <button className="font-medium bg-slate-400 p-2 py-3 lg:py-[0.5rem] text-sm 2xl: py-[0.5rem]">Send  <i className="fa-regular fa-paper-plane"></i></button>
             <button onClick={()=>dispatch(ToggleChatBox(false))} className="font-medium py-3 bg-slate-300 px-2 lg:py-[0.5rem] text-sm 2xl: py-[0.5rem]  ">Hide chat</button>
